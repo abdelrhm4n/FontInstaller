@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewBag.Title = "Install";
+}
+
+<h2>Install the font</h2>
+@using (Html.BeginForm("Install", "Font", FormMethod.Post,
+                         new { enctype = "multipart/form-data" }))
+{
+    <input type="file" name="font" id="font" accept=".ttf,.gxf,.fot,.sfd,.pfb,.fnt,.vfb,.pfa,.etx,.woff,.jfproj,.vlw" />
+    <br>
+    <br>
+
+    <input type="submit" value="Upload file" />
+
+    <br>
+    <br>
+
+}
