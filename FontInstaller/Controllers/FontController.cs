@@ -38,7 +38,7 @@ namespace FontInstaller.Controllers
                     return View("Error");
                 }
 
-                if (!Directory.Exists(Server.MapPath(_installationDirectory)))
+                if (!Directory.Exists(_installationDirectory))
                 {
                     Directory.CreateDirectory(_installationDirectory);
                 }
@@ -46,6 +46,9 @@ namespace FontInstaller.Controllers
                 font.SaveAs(path);
 
                 RegisterFont(path, font.FileName);
+
+                // delete the file after installation
+                System.IO.File.Delete(path);
             }
             catch (Exception)
             {
